@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
@@ -51,6 +52,10 @@ public class Calculator extends JFrame implements ActionListener {
         this.bCalculate = new MyJButton(new IconSetter(this.getIconPath("icons8-love-50.png")));
         this.bExit = new MyJButton(new IconSetter(this.getIconPath("icons8-exit-50.png")));
         this.bClean = new MyJButton(new IconSetter(this.getIconPath("icons8-trash-50.png")));
+
+        this.bCalculate.addActionListener(this);
+        this.bExit.addActionListener(this);
+        this.bClean.addActionListener(this);
 
         this.hLabel = new MyJLabel(new IconSetter(this.getIconPath("icons8-boy-50.png")));
         this.fLabel = new MyJLabel(new IconSetter(this.getIconPath("icons8-girl-50.png")));
@@ -107,7 +112,16 @@ public class Calculator extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource().equals(this.bClean)) {
+            this.tGirlName.setText(null);
+            this.tBoyName.setText(null);
+        }
+        if (e.getSource().equals(this.bExit)) {
+            System.exit(-1);
+        }
+        if (e.getSource().equals(this.bCalculate)) {
+            this.bar.setValue(75);
+        }
     }
 
 }

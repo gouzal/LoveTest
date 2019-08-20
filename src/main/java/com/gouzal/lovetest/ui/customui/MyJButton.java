@@ -14,6 +14,12 @@ public class MyJButton extends JButton {
     public MyJButton(IconSetter iconSetter) {
         this.iconSetter = iconSetter;
         this.iconSetter.setIcon(this);
+
+        // this.setOpaque(false);
+        // this.setFocusPainted(false);
+        // this.setBorderPainted(false);
+        // this.setContentAreaFilled(false);
+        // this.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     }
 
     public void setIconSetter(IconSetter iconSetter) {

@@ -4,12 +4,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
@@ -41,6 +46,12 @@ public class CalculatorUI extends JFrame implements ActionListener {
 
     private JProgressBar bar;
 
+    private JMenuBar menuBar;
+    private JMenu fileMenu;
+    private JMenu helpMenu;
+    private JMenuItem exitMenuItem;
+    private JMenuItem aboutMenuItem;
+
     public CalculatorUI() {
         this.init();
 
@@ -56,7 +67,8 @@ public class CalculatorUI extends JFrame implements ActionListener {
         this.setLayouts();
         this.addComponentsToPanels();
         this.getContentPane().add(this.intialPanel);
-
+        this.initMenus();
+        this.setJMenuBar(this.menuBar);
     }
 
     /**
@@ -74,7 +86,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
             this.tGirlName.setText(null);
             this.tBoyName.setText(null);
         }
-        if (e.getSource().equals(this.bExit)) {
+        if (e.getSource().equals(this.bExit) || e.getSource().equals(this.exitMenuItem)) {
             System.exit(0);
         }
         if (e.getSource().equals(this.bCalculate)) {
@@ -83,6 +95,15 @@ public class CalculatorUI extends JFrame implements ActionListener {
             Calculator calculator = new Calculator(firstName, secondName);
             int loveResult = calculator.getLoveResult();
             this.bar.setValue(loveResult);
+        }
+        if (e.getSource().equals(this.aboutMenuItem)) {
+            String message = "";
+            message += "Developer: Gouzal Larbi\n";
+            message += "Email: larbi-inco@live.fr\n";
+            message += "github: https://github.com/gouzal/LoveTest\n";
+            message += "License: MIT - 2019\n";
+            message += "Icons: https://icons8.com\n";
+            JOptionPane.showMessageDialog(null, message, "About Me", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -145,5 +166,21 @@ public class CalculatorUI extends JFrame implements ActionListener {
         this.firstPanel.setLayout(new FlowLayout());
         this.secondPanel.setLayout(new FlowLayout(0, 0, 0));
         this.thirdPanel.setLayout(new FlowLayout());
+    }
+
+    private void initMenus() {
+        this.menuBar = new JMenuBar();
+        this.fileMenu = new JMenu("File");
+        this.helpMenu = new JMenu("Help");
+        this.exitMenuItem = new JMenuItem("Exit");
+        this.aboutMenuItem = new JMenuItem("About");
+        this.fileMenu.add(this.exitMenuItem);
+        this.helpMenu.add(this.aboutMenuItem);
+        this.menuBar.add(this.fileMenu);
+        this.menuBar.add(this.helpMenu);
+
+        this.exitMenuItem.addActionListener(this);
+        this.aboutMenuItem.addActionListener(this);
+
     }
 }

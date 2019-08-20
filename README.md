@@ -4,7 +4,7 @@ Is it true love or just friendship? Simply enter two names to discover your comp
 
 ## Screen shots
 
-![Alt text](assets/splash.PNG?raw=true "Splash")
+![Alt text](assets/splash.png?raw=true "Splash")
 
 ![Alt text](assets/ui1.JPG?raw=true "UI")
 

@@ -5,7 +5,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
-import com.gouzal.lovetest.logic.Calculator;
 import com.gouzal.lovetest.ui.CalculatorUI;
 
 public final class App {
@@ -22,7 +21,7 @@ public final class App {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        
+
         CalculatorUI calculatorUI = new CalculatorUI();
         calculatorUI.setVisible(true);
         calculatorUI.pack();

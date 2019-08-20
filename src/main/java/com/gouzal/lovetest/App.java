@@ -6,6 +6,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import com.gouzal.lovetest.ui.CalculatorUI;
+import com.gouzal.lovetest.ui.Splash;
 
 public final class App {
     private App() {
@@ -16,6 +17,8 @@ public final class App {
      * @throws UnsupportedLookAndFeelException
      */
     public static void main(String[] args) {
+        Splash splash=new Splash();
+        
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
         } catch (UnsupportedLookAndFeelException e) {

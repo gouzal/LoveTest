@@ -2,6 +2,12 @@
 
 Is it true love or just friendship? Simply enter two names to discover your compatibility with your crush! a funny app to test your love :)
 
+## Screen shots
+
+![Alt text](assets/splash.PNG?raw=true "Splash")
+
+![Alt text](assets/ui1.JPG?raw=true "UI")
+
 ## icons
 
 icons are downloaded from `https://icons8.com`

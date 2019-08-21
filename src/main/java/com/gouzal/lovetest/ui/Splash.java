@@ -22,7 +22,7 @@ public class Splash extends JWindow implements Runnable {
 
         container.setLayout(new BorderLayout());
 
-        container.add(new JLabel(new ImageIcon(this.getClass().getResource("").getPath()+"../../../../../../assets/splash.png")), "Center");
+        container.add(new JLabel(new ImageIcon(this.getClass().getResource("").getPath()+"img/splash/main.png")), "Center");
         this.progressBar = new JProgressBar(0, 100);
         this.progressBar.setMinimum(0);
         this.progressBar.setMaximum(100);

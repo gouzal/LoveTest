@@ -76,7 +76,7 @@ public class CalculatorUI extends JFrame implements ActionListener {
      * @return String image Pth
      */
     private String getIconPath(String iconName) {
-        return getClass().getResource("").getPath() + "img/icon8/" + iconName;
+        return this.getClass().getResource("").getPath() + "img/icon8/" + iconName;
     }
 
     @Override

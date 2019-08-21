@@ -17,21 +17,36 @@ public final class App {
      * @throws UnsupportedLookAndFeelException
      */
     public static void main(String[] args) {
-        Splash splash=new Splash();
-        
+        setLookAndFeel();
+        displaySplash();
+
+        CalculatorUI calculatorUI = new CalculatorUI();
+        setInitialUIProperties(calculatorUI);
+    }
+
+    public static void displaySplash() {
+        Splash splash = new Splash();
+        Thread thread = new Thread(splash);
+        thread.start();
+        while (thread.isAlive()) {
+
+        }
+    }
+
+    public static void setLookAndFeel() {
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
+    }
 
-        CalculatorUI calculatorUI = new CalculatorUI();
-        calculatorUI.setVisible(true);
-        calculatorUI.pack();
-        calculatorUI.setTitle("Love Tester v1.0");
-        calculatorUI.setResizable(false);
-        calculatorUI.setLocationRelativeTo(null);
-        calculatorUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+    public static void setInitialUIProperties(JFrame frame) {
+        frame.setVisible(true);
+        frame.pack();
+        frame.setTitle("Love Tester v1.0");
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

@@ -21,7 +21,8 @@ public class Splash extends JWindow implements Runnable {
         container.setBackground(Color.RED);
 
         container.setLayout(new BorderLayout());
-        container.add(new JLabel(new ImageIcon("pic\\splashx.png")), "Center");
+
+        container.add(new JLabel(new ImageIcon(this.getClass().getResource("").getPath()+"../../../../../../assets/splash.png")), "Center");
         this.progressBar = new JProgressBar(0, 100);
         this.progressBar.setMinimum(0);
         this.progressBar.setMaximum(100);
@@ -30,23 +31,20 @@ public class Splash extends JWindow implements Runnable {
 
         container.add(this.progressBar, "South");
 
+     
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 
-        this.thread = new Thread(this);
-        this.thread.start();
     }
 
     @Override
     public void run() {
         for (int j = 1; j < 100; j += 5) {
             this.progressBar.setValue(j);
-
             try {
-                this.thread.wait(100L);
+                this.thread.sleep(100L);
             } catch (Exception e) {
-                // JOptionPane.showMessageDialog(null, "Attention " + e.getMessage());
                 System.out.println("thread: " + e.getMessage());
             }
         }
